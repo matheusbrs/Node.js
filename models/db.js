@@ -1,23 +1,22 @@
-const  Sequelize  = require('sequelize');  
+const { Sequelize } = require('sequelize');
 
+// Criar conexão
 const sequelize = new Sequelize(
-    "cadastro",     
-    "root",         
-    "Az061236",     
+    "cadastro", // nome do banco
+    "root",     // usuário
+    "Az061236", // senha
     {
         host: "localhost",
         dialect: "mysql"
     }
 );
 
+// Testar conexão
 sequelize.authenticate()
-    .then(function () {
-        console.log("Banco de dados conectado com sucesso");
-    })
-    .catch(function (erro) {
-        console.log("Erro ao se conectar ao banco de dados:");
-    });
+    .then(() => console.log('Conectado ao banco de dados'))
+    .catch(err => console.log('Erro ao conectar: ' + err));
 
 module.exports = {
-    sequelize               
+    Sequelize,  
+    sequelize   
 };

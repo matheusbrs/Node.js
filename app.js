@@ -1,14 +1,14 @@
-const express = require('express');
-const app = express();
+const Express = require('express');
+const app = Express();
 
-app.listen('8081', function(){
-    console.log('servidor esta funcionando na porta 8081');
+app.listen('8081',()=>{
+  console.log('servidor esta funcionando na porta 8081');
 });
 
-app.get('/artigos/:id',function(req,res){
-    if(req.params.id == 1){
-        res.send('voce esta na aba de artigos');
-    }if(req.params.id == 2){
-        res.send('22222222222222s');
-    }
+app.get('/servidor/:id',function(req,res){
+  if(req.params.id == "1"){
+    res.send('voce esta em artigos');
+  }else{
+    res.send('errado');
+  }
 })
